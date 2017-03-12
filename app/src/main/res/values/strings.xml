@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SwordMagicHeart</string>
+    <string name="open_sword">Sword</string>
+    <string name="open_magic">Magic</string>
+    <string name="open_heart">Heart</string>
+    <string name="open_go">Go!</string>
+</resources>
