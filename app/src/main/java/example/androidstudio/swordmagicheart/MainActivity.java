@@ -8,6 +8,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        //set screen to open on the battle screen
+        setContentView(R.layout.battle_screen);
     }
 }
