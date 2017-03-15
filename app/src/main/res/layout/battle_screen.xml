@@ -66,18 +66,21 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <ImageButton
+            android:id="@+id/rock"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:src="@drawable/rock"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
         <ImageButton
+            android:id="@+id/paper"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:src="@drawable/paper"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
         <ImageButton
+            android:id="@+id/scissor"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:src="@drawable/scissor"
