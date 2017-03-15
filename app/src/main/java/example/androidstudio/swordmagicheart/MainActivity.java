@@ -1,5 +1,6 @@
 package example.androidstudio.swordmagicheart;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,9 +21,18 @@ public class MainActivity extends AppCompatActivity {
     Integer playerNumericScore = 0;
     Integer computerNumericScore  = 0;
 
+    public MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //----------------------------------------------------------
+        //start the background song for the battle
+        //----------------------------------------------------------
+        mediaPlayer = MediaPlayer.create(this, R.raw.opening_theme);
+        mediaPlayer.start();
+        mediaPlayer.setLooping(true);
 
         //set screen to open on the battle screen
         setContentView(R.layout.battle_screen);
@@ -111,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void battle(){
+
+        
 
         TextView winnerText = (TextView)findViewById(R.id.winner_text);
         TextView playerScore = (TextView)findViewById(R.id.player_score);
