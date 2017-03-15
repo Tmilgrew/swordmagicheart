@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView playerChoice;
     ImageView computerChoice;
+    Integer playerNumericScore = 0;
+    Integer computerNumericScore  = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
     public void battle(){
 
         TextView winnerText = (TextView)findViewById(R.id.winner_text);
+        TextView playerScore = (TextView)findViewById(R.id.player_score);
+        TextView computerScore = (TextView)findViewById(R.id.computer_score);
+
 
 
         //----------------------------------------------------------
@@ -127,10 +132,14 @@ public class MainActivity extends AppCompatActivity {
             || (playerChoice.getTag().equals(R.drawable.rock) && computerChoice.getTag().equals(R.drawable.scissor))
             || (playerChoice.getTag().equals(R.drawable.scissor) && computerChoice.getTag().equals(R.drawable.paper))){
 
+            playerNumericScore= playerNumericScore + 1;
+            playerScore.setText(playerNumericScore.toString());
             winnerText.setText("You win!!!");
 
         }else{
-            winnerText.setText("The Computer Wins!!!");
+            computerNumericScore= computerNumericScore + 1;
+            computerScore.setText(computerNumericScore.toString());
+            winnerText.setText("Computer Wins!");
         }
     }
 }
