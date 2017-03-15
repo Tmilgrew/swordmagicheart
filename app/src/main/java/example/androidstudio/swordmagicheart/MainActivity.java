@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void battle(){
-        
+
         TextView winnerText = (TextView)findViewById(R.id.winner_text);
 
 
