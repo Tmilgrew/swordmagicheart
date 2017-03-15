@@ -4,4 +4,7 @@
     <string name="open_magic">Magic</string>
     <string name="open_heart">Heart</string>
     <string name="open_go">Go!</string>
+    <string name="player_score">00</string>
+    <string name="computer_score">00</string>
+    <string name="battle_go">Battle!</string>
 </resources>
