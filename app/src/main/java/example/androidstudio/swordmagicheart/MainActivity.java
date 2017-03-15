@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void battle(){
 
-        
+
 
         TextView winnerText = (TextView)findViewById(R.id.winner_text);
         TextView playerScore = (TextView)findViewById(R.id.player_score);
@@ -153,5 +153,13 @@ public class MainActivity extends AppCompatActivity {
             computerScore.setText(computerNumericScore.toString());
             winnerText.setText("Computer Wins!");
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        mediaPlayer.release();
     }
 }
