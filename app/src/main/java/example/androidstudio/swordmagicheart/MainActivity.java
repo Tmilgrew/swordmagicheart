@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static example.androidstudio.swordmagicheart.R.drawable.rock;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView computerChoice;
     Integer playerNumericScore = 0;
     Integer computerNumericScore  = 0;
+    Boolean battleEnable = false; //we use this bool value to keep track of if user picked an option or not
 
     public MediaPlayer mediaPlayer;
 
@@ -28,14 +31,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //----------------------------------------------------------
+        //set screen to open on the battle screen
+        //----------------------------------------------------------
+        setContentView(R.layout.battle_screen);
+
+        //----------------------------------------------------------
         //start the background song for the battle
         //----------------------------------------------------------
         mediaPlayer = MediaPlayer.create(this, R.raw.opening_theme);
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
-
-        //set screen to open on the battle screen
-        setContentView(R.layout.battle_screen);
 
         //----------------------------------------------------------
         //finds the button with the rock image and establishes an
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 playerChoice.setImageResource(R.drawable.rock);
                 playerChoice.setTag(R.drawable.rock);
                 playerChoice.setScaleX(-1);//to make the fist face the correct way
+                battleEnable = true;  //allows us to battle
             }
         });
 
@@ -72,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 playerChoice.setImageResource(R.drawable.paper);
                 playerChoice.setTag(R.drawable.paper);
                 playerChoice.setScaleX(1); //to fix the scale from rock image
+                battleEnable = true; //allows us to battle
             }
         });
 
@@ -91,21 +98,27 @@ public class MainActivity extends AppCompatActivity {
                 playerChoice.setImageResource(R.drawable.scissor);
                 playerChoice.setTag(R.drawable.scissor);
                 playerChoice.setScaleX(1); //to fix the scale from rock image
+                battleEnable = true; //allows us to battle
             }
         });
 
         //----------------------------------------------------------
         //finds the "battle" button and begins the battle
         //----------------------------------------------------------
-        Button battleButton = (Button)findViewById(R.id.battle_button);
+        Button battleButton = (Button) findViewById(R.id.battle_button);
         battleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setComputerChoice();
-                battle();
+                if (battleEnable == false) { //if the user did not select a value, show message
+                    Toast.makeText(MainActivity.this, "Select an Option", Toast.LENGTH_SHORT).show();
+                } else {
+                    setComputerChoice();
+                    battle();
+                }
             }
         });
     }
+
 
     //----------------------------------------------------------
     //finds the computer's choice randomly
@@ -122,13 +135,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void battle(){
 
-
-
         TextView winnerText = (TextView)findViewById(R.id.winner_text);
         TextView playerScore = (TextView)findViewById(R.id.player_score);
         TextView computerScore = (TextView)findViewById(R.id.computer_score);
-
-
 
         //----------------------------------------------------------
         //if player and computer picked the same thing
@@ -155,6 +164,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //----------------------------------------------------------
+    //when we stop the activity
+    //----------------------------------------------------------
     @Override
     protected void onStop() {
         super.onStop();
