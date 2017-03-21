@@ -76,6 +76,8 @@
             android:layout_width="100dp"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@drawable/stylebutton"
+            android:fontFamily="monospace"
             android:text="@string/battle_go"/>
         <TextView
             android:id="@+id/winner_text"
