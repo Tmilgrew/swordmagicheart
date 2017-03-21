@@ -2,6 +2,7 @@ package example.androidstudio.swordmagicheart;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
+
 
 /**
  * Created by thomasmilgrew on 3/20/17.
@@ -23,6 +25,8 @@ public class BattleActivity extends AppCompatActivity {
     Integer playerNumericScore = 0;
     Integer computerNumericScore  = 0;
     Boolean battleEnable = false; //we use this bool value to keep track of if user picked an option or not
+    Integer secondsLeft = 30;
+    TextView timer;
 
     public MediaPlayer mediaPlayer;
 
@@ -114,6 +118,23 @@ public class BattleActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //----------------------------------------------------------
+        //starting the timer for the battle
+        //----------------------------------------------------------
+        timer = (TextView)findViewById(R.id.timer);
+        new CountDownTimer(32000, 1000){
+            @Override
+            public void onTick(long l) {
+                timer.setText(secondsLeft.toString());
+                secondsLeft = secondsLeft - 1;
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
     }
 
 
