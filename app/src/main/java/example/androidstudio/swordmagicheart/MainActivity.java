@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-import static example.androidstudio.swordmagicheart.R.drawable.rock;
 
 public class MainActivity extends AppCompatActivity {
 

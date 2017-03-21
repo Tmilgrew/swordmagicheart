@@ -65,8 +65,8 @@ public class BattleActivity extends AppCompatActivity {
                 //image in the main battle area
                 //----------------------------------------------------------
                 playerChoice = (ImageView) findViewById(R.id.player_battle_choice);
-                playerChoice.setImageResource(R.drawable.rock);
-                playerChoice.setTag(R.drawable.rock);
+                playerChoice.setImageResource(R.drawable.sword);
+                playerChoice.setTag(R.drawable.sword);
                 playerChoice.setScaleX(-1);//to make the fist face the correct way
                 battleEnable = true;  //allows us to battle
             }
@@ -85,8 +85,8 @@ public class BattleActivity extends AppCompatActivity {
                 //image in the main battle area
                 //----------------------------------------------------------
                 playerChoice = (ImageView) findViewById(R.id.player_battle_choice);
-                playerChoice.setImageResource(R.drawable.paper);
-                playerChoice.setTag(R.drawable.paper);
+                playerChoice.setImageResource(R.drawable.magic);
+                playerChoice.setTag(R.drawable.magic);
                 playerChoice.setScaleX(1); //to fix the scale from rock image
                 battleEnable = true; //allows us to battle
             }
@@ -105,8 +105,8 @@ public class BattleActivity extends AppCompatActivity {
                 //image in the main battle area
                 //----------------------------------------------------------
                 playerChoice = (ImageView) findViewById(R.id.player_battle_choice);
-                playerChoice.setImageResource(R.drawable.scissor);
-                playerChoice.setTag(R.drawable.scissor);
+                playerChoice.setImageResource(R.drawable.heart);
+                playerChoice.setTag(R.drawable.heart);
                 playerChoice.setScaleX(1); //to fix the scale from rock image
                 battleEnable = true; //allows us to battle
             }
@@ -149,17 +149,17 @@ public class BattleActivity extends AppCompatActivity {
                 if (playerNumericScore > computerNumericScore) {
                     startMediaPlayer(R.raw.match_winner, false);
                     mediaPlayer.setOnCompletionListener(mCompletionListener);
-                    winnerText.setText("You are Winner");
+                    winnerText.setText("You Won!!!");
                 }
                 if (playerNumericScore < computerNumericScore) {
                     startMediaPlayer(R.raw.match_loser, false);
                     mediaPlayer.setOnCompletionListener(mCompletionListener);
-                    winnerText.setText("Comp is winner");
+                    winnerText.setText("You Lose!!!");
                 }
                 if (playerNumericScore == computerNumericScore) {
                     startMediaPlayer(R.raw.match_loser, false);
                     mediaPlayer.setOnCompletionListener(mCompletionListener);
-                    winnerText.setText("It's a Draw!!!");
+                    winnerText.setText("Draw!!!");
                 }
             }
         }.start();
@@ -172,7 +172,7 @@ public class BattleActivity extends AppCompatActivity {
     //----------------------------------------------------------
     public void setComputerChoice() {
         computerChoice = (ImageView) findViewById(R.id.computer_battle_choice);
-        int[] imageOptions = new int[]{R.drawable.rock, R.drawable.paper, R.drawable.scissor};
+        int[] imageOptions = new int[]{R.drawable.sword, R.drawable.magic, R.drawable.heart};
         Random rand = new Random();
         int n = rand.nextInt(3);
         computerChoice.setImageResource(imageOptions[n]);
@@ -189,24 +189,24 @@ public class BattleActivity extends AppCompatActivity {
         //if player and computer picked the same thing
         //----------------------------------------------------------
         if (playerChoice.getDrawable().getConstantState().equals(computerChoice.getDrawable().getConstantState())) {
-            winnerText.setText("It is a Tie!!!");
+            winnerText.setText("Tie!!!");
         }
 
         //----------------------------------------------------------
         //if player wins print "You win" otherwise the computer wins
         //----------------------------------------------------------
-        else if ((playerChoice.getTag().equals(R.drawable.paper) && computerChoice.getTag().equals(R.drawable.rock))
-                || (playerChoice.getTag().equals(R.drawable.rock) && computerChoice.getTag().equals(R.drawable.scissor))
-                || (playerChoice.getTag().equals(R.drawable.scissor) && computerChoice.getTag().equals(R.drawable.paper))) {
+        else if ((playerChoice.getTag().equals(R.drawable.magic) && computerChoice.getTag().equals(R.drawable.sword))
+                || (playerChoice.getTag().equals(R.drawable.sword) && computerChoice.getTag().equals(R.drawable.heart))
+                || (playerChoice.getTag().equals(R.drawable.heart) && computerChoice.getTag().equals(R.drawable.magic))) {
 
             playerNumericScore = playerNumericScore + 1;
             playerScore.setText(playerNumericScore.toString());
-            winnerText.setText("You win!!!");
+            winnerText.setText("Winner!!!");
 
         } else {
             computerNumericScore = computerNumericScore + 1;
             computerScore.setText(computerNumericScore.toString());
-            winnerText.setText("Computer Wins!");
+            winnerText.setText("Loser!!!");
         }
     }
 
