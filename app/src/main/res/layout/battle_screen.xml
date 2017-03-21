@@ -100,7 +100,7 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:background="@drawable/stylebutton"
-            android:src="@drawable/rockcopy"
+            android:src="@drawable/rock"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
         <ImageButton
@@ -108,7 +108,7 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:background="@drawable/stylebutton"
-            android:src="@drawable/papercopy"
+            android:src="@drawable/paper"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
         <ImageButton
@@ -116,7 +116,7 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:background="@drawable/stylebutton"
-            android:src="@drawable/scissorscopy"
+            android:src="@drawable/scissor"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
     </LinearLayout>
