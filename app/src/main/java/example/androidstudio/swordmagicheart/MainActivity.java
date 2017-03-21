@@ -20,10 +20,18 @@ import static example.androidstudio.swordmagicheart.R.drawable.rock;
 
 public class MainActivity extends AppCompatActivity {
 
+    public MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //----------------------------------------------------------
+        //start the background song for the battle
+        //----------------------------------------------------------
+        mediaPlayer = MediaPlayer.create(this, R.raw.opening_theme);
+        mediaPlayer.start();
+        mediaPlayer.setLooping(true);
 
         //----------------------------------------------------------
         //set screen to open on the battle screen
@@ -45,5 +53,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //----------------------------------------------------------
+    //when we stop the activity
+    //----------------------------------------------------------
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        releaseMediaPlayer();
+    }
+
+    //----------------------------------------------------------
+    //when we start the activity again
+    //----------------------------------------------------------
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mediaPlayer == null){
+            mediaPlayer = MediaPlayer.create(this, R.raw.opening_theme);
+            mediaPlayer.start();
+            mediaPlayer.setLooping(true);
+        }
+    }
+
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mediaPlayer.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mediaPlayer = null;
+
+            // Regardless of whether or not we were granted audio focus, abandon it. This also
+            // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
+            //mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
+        }
     }
 }
