@@ -27,6 +27,10 @@ public class BattleActivity extends AppCompatActivity {
     Boolean battleEnable = false; //we use this bool value to keep track of if user picked an option or not
     Integer secondsLeft = 30;
     TextView timer;
+    TextView winnerText;
+    Button battleButton;
+    //TextView playerScore = (TextView)findViewById(R.id.player_score);
+
 
     public MediaPlayer mediaPlayer;
 
@@ -106,7 +110,7 @@ public class BattleActivity extends AppCompatActivity {
         //----------------------------------------------------------
         //finds the "battle" button and begins the battle
         //----------------------------------------------------------
-        Button battleButton = (Button) findViewById(R.id.battle_button);
+        battleButton = (Button) findViewById(R.id.battle_button);
         battleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,7 +136,14 @@ public class BattleActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                battleButton.setEnabled(false);
+                if(playerNumericScore > computerNumericScore){
+                    winnerText.setText("You are Winner");
+                }else if(playerNumericScore < computerNumericScore){
+                    winnerText.setText("Comp ia winner");
+                }else{
+                    winnerText.setText("It's a Draw!!!");
+                }
             }
         }.start();
     }
@@ -153,7 +164,7 @@ public class BattleActivity extends AppCompatActivity {
 
     public void battle(){
 
-        TextView winnerText = (TextView)findViewById(R.id.winner_text);
+        winnerText = (TextView)findViewById(R.id.winner_text);
         TextView playerScore = (TextView)findViewById(R.id.player_score);
         TextView computerScore = (TextView)findViewById(R.id.computer_score);
 
