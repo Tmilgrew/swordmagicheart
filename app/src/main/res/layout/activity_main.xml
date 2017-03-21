@@ -16,22 +16,30 @@
         android:id="@+id/sword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/stylebutton"
+        android:fontFamily="monospace"
         android:text="@string/open_sword"
         android:layout_margin="10dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/stylebutton"
+        android:fontFamily="monospace"
         android:text="@string/open_magic"
         android:layout_margin="10dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/stylebutton"
+        android:fontFamily="monospace"
         android:text="@string/open_heart"
         android:layout_margin="10dp"/>
     <Button
         android:id="@+id/start_button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/stylebutton"
+        android:fontFamily="monospace"
         android:text="@string/open_go"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"/>

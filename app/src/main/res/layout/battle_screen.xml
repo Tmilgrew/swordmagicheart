@@ -3,7 +3,8 @@
     android:id="@+id/battle_screen"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gotbattlescenes">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,9 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="50dp"
-            android:text="@string/player_score"/>
+            android:fontFamily="monospace"
+            android:text="@string/player_score"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/timer"
@@ -27,7 +30,9 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="30dp"
-            android:text="30"/>
+            android:fontFamily="monospace"
+            android:text="30"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/computer_score"
@@ -36,7 +41,9 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="50dp"
-            android:text="@string/computer_score"/>
+            android:fontFamily="monospace"
+            android:text="@string/computer_score"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 
     <LinearLayout
@@ -69,6 +76,8 @@
             android:layout_width="100dp"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@drawable/stylebutton"
+            android:fontFamily="monospace"
             android:text="@string/battle_go"/>
         <TextView
             android:id="@+id/winner_text"
@@ -76,7 +85,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="50dp"
-            android:gravity="center_horizontal"/>
+            android:fontFamily="monospace"
+            android:gravity="center_horizontal"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 
     <LinearLayout
@@ -88,6 +99,7 @@
             android:id="@+id/rock"
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:background="@drawable/stylebutton"
             android:src="@drawable/rock"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
@@ -95,6 +107,7 @@
             android:id="@+id/paper"
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:background="@drawable/stylebutton"
             android:src="@drawable/paper"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
@@ -102,6 +115,7 @@
             android:id="@+id/scissor"
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:background="@drawable/stylebutton"
             android:src="@drawable/scissor"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
