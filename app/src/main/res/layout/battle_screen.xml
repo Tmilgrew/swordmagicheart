@@ -99,21 +99,24 @@
             android:id="@+id/rock"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:src="@drawable/rock"
+            android:background="@drawable/stylebutton"
+            android:src="@drawable/rockcopy"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
         <ImageButton
             android:id="@+id/paper"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:src="@drawable/paper"
+            android:background="@drawable/stylebutton"
+            android:src="@drawable/papercopy"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
         <ImageButton
             android:id="@+id/scissor"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:src="@drawable/scissor"
+            android:background="@drawable/stylebutton"
+            android:src="@drawable/scissorscopy"
             android:scaleType="centerInside"
             android:layout_weight="1"/>
     </LinearLayout>
