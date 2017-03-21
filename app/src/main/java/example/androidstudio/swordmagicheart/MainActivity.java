@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View.OnClickListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Button startButton = (Button)findViewById(R.id.start_button);
 
         //set a click listener on this button
-        startButton.setOnClickListener(new View.OnClickListener() {
+        startButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 //create new intent to start battle
